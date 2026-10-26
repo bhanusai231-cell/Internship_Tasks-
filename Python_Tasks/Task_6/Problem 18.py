@@ -1,19 +1,47 @@
-# Set Mutations
-# https://www.hackerrank.com/challenges/py-set-mutations/problem
-# Enter your code here. Read input from STDIN. Print output to STDOUT
-n = int(input())
-A = set(map(int,input().split()))
-N = int(input())
-for _ in range(N):
-    operation, size = input().split()
-    other =set(map(int,input().split()))
-    
-    if operation == "update":
-        A.update(other)
-    elif operation == "intersection_update":
-        A.intersection_update(other)
-    elif operation == "difference_update":
-        A.difference_update(other)
-    elif operation == "symmetric_difference_update":
-        A.symmetric_difference_update(other)
-print(sum(A))
+# String Construction
+# https://www.hackerrank.com/challenges/string-construction/problem
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'stringConstruction' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts STRING s as parameter.
+#
+
+def stringConstruction(s):
+    return len(set(s))
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    q = int(input().strip())
+
+    for q_itr in range(q):
+        s = input()
+
+        result = stringConstruction(s)
+
+        fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    q = int(input().strip())
+
+    for q_itr in range(q):
+        s = input()
+
+        result = stringConstruction(s)
+
+        fptr.write(str(result) + '\n')
+
+    fptr.close()

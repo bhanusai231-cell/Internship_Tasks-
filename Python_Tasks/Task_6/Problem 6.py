@@ -1,6 +1,37 @@
-# Print Function
-# https://www.hackerrank.com/challenges/python-print/problem
+#   Pangrams
+# https://www.hackerrank.com/challenges/pangrams/problem
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'pangrams' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts STRING s as parameter.
+#
+
+def pangrams(s):
+    s = s.lower()
+    
+    letters = set(s.replace(" ",""))
+    
+    if len(letters)==26:
+        return "pangram"
+    else:
+        return "not pangram"
+
 if __name__ == '__main__':
-    n = int(input())
-    for i in range(1,n+1):
-        print(i,end = "")
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = pangrams(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()

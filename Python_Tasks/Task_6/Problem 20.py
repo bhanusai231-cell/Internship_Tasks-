@@ -1,14 +1,40 @@
-# Validating the Phone Number
-# https://www.hackerrank.com/challenges/validating-the-phone-number/problem?utm_source=chatgpt.com
-# Enter your code here. Read input from STDIN. Print output to STDOUT
+# Super Reduced String
+# https://www.hackerrank.com/challenges/reduced-string/problem
+#!/bin/python3
+
+import math
+import os
+import random
 import re
+import sys
 
-N = int(input())
+#
+# Complete the 'superReducedString' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts STRING s as parameter.
+#
 
-for _ in range(N):
-    number = input()
-    
-    if re.fullmatch(r'[789]\d{9}', number):
-        print("YES")
+def superReducedString(s):
+    stack = []
+
+    for ch in s:
+        if stack and stack[-1] == ch:
+            stack.pop()
+        else:
+            stack.append(ch)
+
+    if stack:
+        return ''.join(stack)
     else:
-        print("NO")
+        return "Empty String"
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = superReducedString(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()

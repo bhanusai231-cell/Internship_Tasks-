@@ -1,9 +1,42 @@
-# What's Your Name?
-# https://www.hackerrank.com/challenges/whats-your-name/problem
-def print_full_name(first, last):
-    # Write your code here
-    print(f"Hello {first} {last}! You just delved into python.")
+# Beautiful Binary String
+# https://www.hackerrank.com/challenges/beautiful-binary-string/problem
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'beautifulBinaryString' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts STRING b as parameter.
+#
+
+def beautifulBinaryString(b):
+    count = 0
+    i = 0
+
+    while i < len(b) - 2:
+        if b[i:i+3] == "010":
+            count += 1
+            i += 3
+        else:
+            i += 1
+
+    return count
+
 if __name__ == '__main__':
-    first_name = input()
-    last_name = input()
-    print_full_name(first_name, last_name)
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    b = input()
+
+    result = beautifulBinaryString(b)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()

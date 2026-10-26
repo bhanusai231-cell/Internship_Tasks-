@@ -1,8 +1,9 @@
-# Arithmetic Operators
-# https://www.hackerrank.com/challenges/python-arithmetic-operators/problem
-if __name__ == '__main__':
-    a = int(input())
-    b = int(input())
-    print(a+b)
-    print(a-b)
-    print(a*b)
+# The Captain's Room
+# https://www.hackerrank.com/challenges/py-the-captains-room/problem
+a = int(input())
+rooms = list(map(int,input().split()))
+
+for room in set(rooms):
+    if rooms.count(room)==1:
+        print(room)
+        break
