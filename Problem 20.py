@@ -1,40 +1,24 @@
-# Super Reduced String
-# https://www.hackerrank.com/challenges/reduced-string/problem
-#!/bin/python3
-
-import math
-import os
-import random
-import re
-import sys
-
-#
-# Complete the 'superReducedString' function below.
-#
-# The function is expected to return a STRING.
-# The function accepts STRING s as parameter.
-#
-
-def superReducedString(s):
-    stack = []
-
-    for ch in s:
-        if stack and stack[-1] == ch:
-            stack.pop()
+# Piling Up!
+# https://www.hackerrank.com/challenges/piling-up/problem
+def pile_up(blocks):
+    while len(blocks) > 1:
+        if blocks[0] >= blocks[-1]:
+            if blocks[0] < blocks[-2]:
+                return "No"
+            blocks.pop(0)
         else:
-            stack.append(ch)
+            if blocks[-1] < blocks[1]:
+                return "No"
+            blocks.pop()
 
-    if stack:
-        return ''.join(stack)
-    else:
-        return "Empty String"
+    return "Yes"
+
+
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    T = int(input())
 
-    s = input()
+    for _ in range(T):
+        n = int(input())
+        blocks = list(map(int, input().split()))
 
-    result = superReducedString(s)
-
-    fptr.write(result + '\n')
-
-    fptr.close()
+        print(pile_up(blocks))

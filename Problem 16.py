@@ -1,50 +1,20 @@
-# Caesar Cipher
-# https://www.hackerrank.com/challenges/caesar-cipher-1/problem
-#!/bin/python3
+# Collections.Counter()
+# https://www.hackerrank.com/challenges/collections-counter/problem
+from collections import Counter
 
-import math
-import os
-import random
-import re
-import sys
+n = int(input())
+shoe_sizes = list(map(int, input().split()))
 
-#
-# Complete the 'caesarCipher' function below.
-#
-# The function is expected to return a STRING.
-# The function accepts following parameters:
-#  1. STRING s
-#  2. INTEGER k
-#
+inventory = Counter(shoe_sizes)
 
-def caesarCipher(s, k):
-    result = ""
+customers = int(input())
+total = 0
 
-    k = k % 26
+for _ in range(customers):
+    size, price = map(int, input().split())
 
-    for ch in s:
-        if 'a' <= ch <= 'z':
-            result += chr((ord(ch) - ord('a') + k) % 26 + ord('a'))
+    if inventory[size] > 0:
+        total += price
+        inventory[size] -= 1
 
-        elif 'A' <= ch <= 'Z':
-            result += chr((ord(ch) - ord('A') + k) % 26 + ord('A'))
-
-        else:
-            result += ch
-
-    return result
-
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
-
-    n = int(input().strip())
-
-    s = input()
-
-    k = int(input().strip())
-
-    result = caesarCipher(s, k)
-
-    fptr.write(result + '\n')
-
-    fptr.close()
+print(total)

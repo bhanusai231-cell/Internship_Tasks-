@@ -1,12 +1,9 @@
-# Set .symmetric_difference() Operation
-# https://www.hackerrank.com/challenges/py-set-symmetric-difference-operation/problem
-# Enter your code here. Read input from STDIN. Print output to STDOUT
-m = int(input())
-english = set(map(int,input().split()))
-
+# Find the Runner-Up Score!
+# https://www.hackerrank.com/challenges/find-second-maximum-number-in-a-list/problem
 n = int(input())
-french = set(map(int,input().split()))
-result = english.symmetric_difference(french)
+arr = list(map(int, input().split()))
 
-print(len(result))
- 
+unique_scores = set(arr)
+unique_scores.remove(max(unique_scores))
+
+print(max(unique_scores))

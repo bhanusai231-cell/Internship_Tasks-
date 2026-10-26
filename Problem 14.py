@@ -1,48 +1,17 @@
-# Anagram
-# https://www.hackerrank.com/challenges/anagram/problem
-#!/bin/python3
+# Finding the Percentage
+# https://www.hackerrank.com/challenges/finding-the-percentage/problem
+n = int(input())
 
-import math
-import os
-import random
-import re
-import sys
+student_marks = {}
 
-#
-# Complete the 'anagram' function below.
-#
-# The function is expected to return an INTEGER.
-# The function accepts STRING s as parameter.
-#
+for _ in range(n):
+    data = input().split()
+    name = data[0]
+    marks = list(map(float, data[1:]))
+    student_marks[name] = marks
 
-def anagram(s):
-    if len(s) % 2 != 0:
-        return -1
+student = input()
 
-    mid = len(s) // 2
-    s1 = s[:mid]
-    s2 = s[mid:]
+average = sum(student_marks[student]) / len(student_marks[student])
 
-    count = 0
-
-    for ch in set(s1):
-        diff = s1.count(ch) - s2.count(ch)
-
-        if diff > 0:
-            count += diff
-
-    return count
-
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
-
-    q = int(input().strip())
-
-    for q_itr in range(q):
-        s = input()
-
-        result = anagram(s)
-
-        fptr.write(str(result) + '\n')
-
-    fptr.close()
+print(f"{average:.2f}")

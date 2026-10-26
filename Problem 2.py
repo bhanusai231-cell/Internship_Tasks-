@@ -1,9 +1,9 @@
-# The Captain's Room
-# https://www.hackerrank.com/challenges/py-the-captains-room/problem
-a = int(input())
-rooms = list(map(int,input().split()))
+# String Split and Join
+# https://www.hackerrank.com/challenges/python-string-split-and-join/problem
+def split_and_join(line):
+    return "-".join(line.split())
 
-for room in set(rooms):
-    if rooms.count(room)==1:
-        print(room)
-        break
+if __name__ == '__main__':
+    line = input()
+    result = split_and_join(line)
+    print(result)

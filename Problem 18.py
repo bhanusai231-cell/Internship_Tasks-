@@ -1,47 +1,23 @@
-# String Construction
-# https://www.hackerrank.com/challenges/string-construction/problem
-#!/bin/python3
+# The Minion Game
+# https://www.hackerrank.com/challenges/the-minion-game/problem
+def minion_game(string):
+    vowels = "AEIOU"
+    kevin = 0
+    stuart = 0
+    n = len(string)
 
-import math
-import os
-import random
-import re
-import sys
+    for i in range(n):
+        if string[i] in vowels:
+            kevin += n - i
+        else:
+            stuart += n - i
 
-#
-# Complete the 'stringConstruction' function below.
-#
-# The function is expected to return an INTEGER.
-# The function accepts STRING s as parameter.
-#
-
-def stringConstruction(s):
-    return len(set(s))
-
+    if stuart > kevin:
+        print("Stuart", stuart)
+    elif kevin > stuart:
+        print("Kevin", kevin)
+    else:
+        print("Draw")
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
-
-    q = int(input().strip())
-
-    for q_itr in range(q):
-        s = input()
-
-        result = stringConstruction(s)
-
-        fptr.write(str(result) + '\n')
-
-    fptr.close()
-
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
-
-    q = int(input().strip())
-
-    for q_itr in range(q):
-        s = input()
-
-        result = stringConstruction(s)
-
-        fptr.write(str(result) + '\n')
-
-    fptr.close()
+    s = input()
+    minion_game(s)

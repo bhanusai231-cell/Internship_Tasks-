@@ -1,19 +1,11 @@
-# Alphabet Rangoli
-# https://www.hackerrank.com/challenges/alphabet-rangoli/problem
-def print_rangoli(size):
-    lines = []
+# Symmetric Difference
+# https://www.hackerrank.com/challenges/symmetric-difference/problem
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+m = int(input())
+a = set(map(int,input().split()))
 
-    for i in range(size):
-        left = []
-
-        for j in range(size - 1, i - 1, -1):
-            left.append(chr(97 + j))
-
-        right = left[-2::-1]
-        row = "-".join(left + right)
-        lines.append(row.center(4 * size - 3, "-"))
-
-    print("\n".join(lines[::-1] + lines[1:]))
-if __name__ == '__main__':
-    n = int(input())
-    print_rangoli(n)
+n = int(input())
+b = set(map(int,input().split()))
+result = a.symmetric_difference(b)
+for x in sorted(result):
+    print(x)
