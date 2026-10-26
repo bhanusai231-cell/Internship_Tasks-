@@ -1,20 +1,18 @@
-# Collections.Counter()
-# https://www.hackerrank.com/challenges/collections-counter/problem
-from collections import Counter
-
+# Nested Lists
+# https://www.hackerrank.com/challenges/nested-list/problem
 n = int(input())
-shoe_sizes = list(map(int, input().split()))
 
-inventory = Counter(shoe_sizes)
+students = []
 
-customers = int(input())
-total = 0
+for _ in range(n):
+    name = input()
+    score = float(input())
+    students.append([name, score])
 
-for _ in range(customers):
-    size, price = map(int, input().split())
+scores = sorted(set(score for name, score in students))
+second_lowest = scores[1]
 
-    if inventory[size] > 0:
-        total += price
-        inventory[size] -= 1
+names = sorted(name for name, score in students if score == second_lowest)
 
-print(total)
+for name in names:
+    print(name)

@@ -1,11 +1,9 @@
-# Text Wrap
-# https://www.hackerrank.com/challenges/text-wrap/problem
-import textwrap
+# String Validators
+# https://www.hackerrank.com/challenges/string-validators/problem
+s = input()
 
-def wrap(string, max_width):
-    return textwrap.fill(string, max_width)
-
-if __name__ == '__main__':
-    string, max_width = input(), int(input())
-    result = wrap(string, max_width)
-    print(result)
+print(any(c.isalnum() for c in s))
+print(any(c.isalpha() for c in s))
+print(any(c.isdigit() for c in s))
+print(any(c.islower() for c in s))
+print(any(c.isupper() for c in s))

@@ -1,23 +1,28 @@
-# The Minion Game
-# https://www.hackerrank.com/challenges/the-minion-game/problem
-def minion_game(string):
-    vowels = "AEIOU"
-    kevin = 0
-    stuart = 0
-    n = len(string)
+# Lists
+# https://www.hackerrank.com/challenges/python-lists/problem
+n = int(input())
+my_list = []
 
-    for i in range(n):
-        if string[i] in vowels:
-            kevin += n - i
-        else:
-            stuart += n - i
+for _ in range(n):
+    command = input().split()
 
-    if stuart > kevin:
-        print("Stuart", stuart)
-    elif kevin > stuart:
-        print("Kevin", kevin)
-    else:
-        print("Draw")
-if __name__ == '__main__':
-    s = input()
-    minion_game(s)
+    if command[0] == "insert":
+        my_list.insert(int(command[1]), int(command[2]))
+
+    elif command[0] == "print":
+        print(my_list)
+
+    elif command[0] == "remove":
+        my_list.remove(int(command[1]))
+
+    elif command[0] == "append":
+        my_list.append(int(command[1]))
+
+    elif command[0] == "sort":
+        my_list.sort()
+
+    elif command[0] == "pop":
+        my_list.pop()
+
+    elif command[0] == "reverse":
+        my_list.reverse()

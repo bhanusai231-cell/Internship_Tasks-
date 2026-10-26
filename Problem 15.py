@@ -1,28 +1,16 @@
-# Lists
-#  https://www.hackerrank.com/challenges/python-lists/problem
+# Word Order
+# https://www.hackerrank.com/challenges/word-order/problem
 n = int(input())
-my_list = []
+
+words = {}
 
 for _ in range(n):
-    command = input().split()
+    word = input()
 
-    if command[0] == "insert":
-        my_list.insert(int(command[1]), int(command[2]))
+    if word in words:
+        words[word] += 1
+    else:
+        words[word] = 1
 
-    elif command[0] == "print":
-        print(my_list)
-
-    elif command[0] == "remove":
-        my_list.remove(int(command[1]))
-
-    elif command[0] == "append":
-        my_list.append(int(command[1]))
-
-    elif command[0] == "sort":
-        my_list.sort()
-
-    elif command[0] == "pop":
-        my_list.pop()
-
-    elif command[0] == "reverse":
-        my_list.reverse()
+print(len(words))
+print(*words.values())

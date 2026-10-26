@@ -1,9 +1,8 @@
-# Set .add()
-# https://www.hackerrank.com/challenges/py-set-add/problem
-# Enter your code here. Read input from STDIN. Print output to STDOUT
-n = int(input())
-countries = set()
-for i in range (n):
-    country = input()
-    countries.add(country)
-print(len(countries))
+# What's Your Name?
+# https://www.hackerrank.com/challenges/whats-your-name/problem
+def print_full_name(first, last):
+    print(f"Hello {first} {last}! You just delved into python.")
+if __name__ == '__main__':
+    first_name = input()
+    last_name = input()
+    print_full_name(first_name, last_

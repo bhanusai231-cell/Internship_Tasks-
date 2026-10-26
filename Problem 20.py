@@ -1,24 +1,18 @@
-# Piling Up!
-# https://www.hackerrank.com/challenges/piling-up/problem
-def pile_up(blocks):
-    while len(blocks) > 1:
-        if blocks[0] >= blocks[-1]:
-            if blocks[0] < blocks[-2]:
-                return "No"
-            blocks.pop(0)
-        else:
-            if blocks[-1] < blocks[1]:
-                return "No"
-            blocks.pop()
+# No Idea!
+# https://www.hackerrank.com/challenges/no-idea/problem
+n, m = map(int, input().split())
 
-    return "Yes"
+arr = list(map(int, input().split()))
 
+A = set(map(int, input().split()))
+B = set(map(int, input().split()))
 
-if __name__ == '__main__':
-    T = int(input())
+happiness = 0
 
-    for _ in range(T):
-        n = int(input())
-        blocks = list(map(int, input().split()))
+for num in arr:
+    if num in A:
+        happiness += 1
+    elif num in B:
+        happiness -= 1
 
-        print(pile_up(blocks))
+print(happiness)

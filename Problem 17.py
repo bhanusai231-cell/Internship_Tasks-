@@ -1,18 +1,17 @@
-# No Idea!
-# https://www.hackerrank.com/challenges/no-idea/problem
-n, m = map(int, input().split())
+# Finding the Percentage
+# https://www.hackerrank.com/challenges/finding-the-percentage/problem
+    n = int(input())
 
-arr = list(map(int, input().split()))
+student_marks = {}
 
-A = set(map(int, input().split()))
-B = set(map(int, input().split()))
+for _ in range(n):
+    data = input().split()
+    name = data[0]
+    marks = list(map(float, data[1:]))
+    student_marks[name] = marks
 
-happiness = 0
+student = input()
 
-for num in arr:
-    if num in A:
-        happiness += 1
-    elif num in B:
-        happiness -= 1
+average = sum(student_marks[student]) / len(student_marks[student])
 
-print(happiness)
+print(f"{average:.2f}")

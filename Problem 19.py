@@ -1,16 +1,20 @@
-# Merge the Tools!
-# https://www.hackerrank.com/challenges/merge-the-tools/problem
-def merge_the_tools(string, k):
-    for i in range(0, len(string), k):
-        part = string[i:i + k]
-        result = ""
+# Collections.Counter()
+# https://www.hackerrank.com/challenges/collections-counter/problem
+from collections import Counter
 
-        for char in part:
-            if char not in result:
-                result += char
+n = int(input())
+shoes = list(map(int, input().split()))
 
-        print(result)
+inventory = Counter(shoes)
 
-if __name__ == '__main__':
-    string, k = input(), int(input())
-    merge_the_tools(string, k)
+customers = int(input())
+total = 0
+
+for _ in range(customers):
+    size, price = map(int, input().split())
+
+    if inventory[size] > 0:
+        total += price
+        inventory[size] -= 1
+
+print(total)
